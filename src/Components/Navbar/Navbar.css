@@ -1,0 +1,23 @@
+
+.navbar {
+    background-color: #ab8c7c;
+    width: 100vh;
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    
+}
+
+.options{
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.btn {
+    background-color: #ab8c7c;
+    border-color:#ab8c7c;
+    border-style: hidden;
+    color: rgb(255, 255, 255);
+    font-size: 0.5em;
+}

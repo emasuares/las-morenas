@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
+import Counter from './Components/counter/counter'
+import ItemListContainer from './Components/itemListContainer/itemListContainer';
+
 
 function App() {
+  const handleOnAdd=(stock,quantity)=>{
+    if (stock!=0){
+      console.log("Items Agregados Al Carrito", quantity)
+    }else{
+      console.log("No hay stock de este producto")
+    }
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
         <Navbar/>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <ItemListContainer greetings='HOLA CODERS'/>
+        <Counter initial={1} stock= {0} onAdd={handleOnAdd} />
     </div>
   );
 }

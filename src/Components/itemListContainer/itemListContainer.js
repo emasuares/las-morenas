@@ -2,6 +2,9 @@ import props from '../../App'
 import { getProducts } from '../../asyncMock'
 import { useEffect,useState } from 'react'
 import Itemlist from '../ItemList/itemList' 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 const ItemListContainer =({greetings}) => {
@@ -22,10 +25,12 @@ const ItemListContainer =({greetings}) => {
     }
 
     return(
-        <div>
+        <Container >
             <h1>{greetings}</h1>
+            <Row>
             <Itemlist products={products}/>
-        </div>
+            </Row>
+        </Container>
 
     )
 }

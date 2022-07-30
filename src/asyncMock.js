@@ -1,3 +1,5 @@
+import Item from "./Components/Item/Item"
+
 const products = [{id: '1',
                    name: 'Pantalon Engomado',
                    price: 5000,
@@ -17,7 +19,7 @@ const products = [{id: '1',
                 {id: '3',
                    name: 'Camisa Oversized',
                    price: 4500,
-                   category: 'Camisas',
+                   category: 'Camisa',
                    img:'https://http2.mlstatic.com/D_NQ_NP_917517-MLA46820861637_072021-O.webp',
                    stock: 3,
                    description:'Camisa Oversized'
@@ -32,4 +34,13 @@ const products = [{id: '1',
 
 
                 })
+            }
+
+            export const getItem=()=>{
+                return new Promise((resolve)=>{
+                    setTimeout(()=>{
+                        resolve(products[0])
+                    },2000)
+                })
+
             }

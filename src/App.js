@@ -4,6 +4,8 @@ import Navbar from './Components/Navbar/Navbar';
 import Counter from './Components/counter/counter'
 import ItemListContainer from './Components/itemListContainer/itemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import GetItemDetail from './Components/ItemDetailContainer/ItemDetailContainer';
+import ItemDetail from './Components/ItemDetail/ItemDetail';
 
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
     <div className="App">
         <Navbar/>
         <ItemListContainer greetings='Productos'/>
-        {/*<Counter initial={1} stock= {10} onAdd={handleOnAdd} />*/}
+        <GetItemDetail/>
     </div>
   );
 }

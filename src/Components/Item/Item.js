@@ -1,16 +1,22 @@
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { useState,useEffect } from 'react';
+import Card from 'react-bootstrap/Card';
+import GetItemDetail from '../ItemDetailContainer/ItemDetailContainer';
 
 
-function Item({products}) {
+ 
+  const Item= ({id,name,price,category,img,stock,description})=>{
+   
+
+
   return (
-    <Container>
-      <Row >
-      {products.map(product => (<Col key={product.id}><div><img  src={product.img}></img><h1>{product.name}</h1><p>${product.price}</p></div></Col>))}
-      </Row>
-    </Container>
+    <Card style={{ width: '18rem',margin:'3rem' }}>
+    <Card.Img variant="top" src={img} />
+    <Card.Body>
+    <Card.Title>{name}</Card.Title>
+    <Card.Text>${price}</Card.Text>
+    </Card.Body>
+    </Card> 
   );
 }
 

@@ -2,11 +2,17 @@ import Item from "../Item/Item"
 
 
 const Itemlist= ({products}) => {
-    return (
-        <div >
-           <Item products={products}/> 
-        </div>  
+    
+    return(
+        products.map(prod=><Item key={prod.id}{...prod}/>)
+       
+
+    
+       
+        
     )
+    
+
 }
 
 export default Itemlist

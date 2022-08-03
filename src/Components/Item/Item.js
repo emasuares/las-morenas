@@ -1,7 +1,8 @@
 
-import { useState,useEffect } from 'react';
+
 import Card from 'react-bootstrap/Card';
-import GetItemDetail from '../ItemDetailContainer/ItemDetailContainer';
+import {Link} from 'react-router-dom';
+
 
 
  
@@ -15,6 +16,7 @@ import GetItemDetail from '../ItemDetailContainer/ItemDetailContainer';
     <Card.Body>
     <Card.Title>{name}</Card.Title>
     <Card.Text>${price}</Card.Text>
+    <Link className='btn' to={`detail/${id}`} >Ver Detalle</Link>
     </Card.Body>
     </Card> 
   );

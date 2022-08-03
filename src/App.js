@@ -1,28 +1,27 @@
 
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import Counter from './Components/counter/counter'
 import ItemListContainer from './Components/itemListContainer/itemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GetItemDetail from './Components/ItemDetailContainer/ItemDetailContainer';
-import ItemDetail from './Components/ItemDetail/ItemDetail';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 
 function App() {
-  const handleOnAdd=(stock,quantity)=>{
-    if (stock!=0){
-      console.log("Items Agregados Al Carrito", quantity)
-    }else{
-      console.log("No hay stock de este producto")
-    }
-  }
+  
 
 
   return (
     <div className="App">
+      <BrowserRouter>
         <Navbar/>
-        <ItemListContainer greetings='Productos'/>
-        <GetItemDetail/>
+        <Routes>
+          <Route path='/' element={ <ItemListContainer greetings='Todos Nuestros Productos'/>}/>
+          <Route path='/category/:categoryId' element={<ItemListContainer greetings='Productos'/>}></Route>
+          <Route path='/detail/:productId' element={<GetItemDetail/>} />
+        </Routes>
+      </BrowserRouter>
+        
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import Item from "./Components/Item/Item"
 
-const products = [{id: '1',
+const products = [{id: '0',
                    name: 'Pantalon Engomado',
                    price: 5000,
                    category: 'Pantalones',
@@ -8,18 +8,18 @@ const products = [{id: '1',
                    stock: 10,
                    description:'Pantalon engomado entallado'
                 },
-                {id: '2',
+                {id: '1',
                    name: 'Poleron Mujer Largo',
                    price: 3500,
-                   category: 'Sweater',
+                   category: 'Sweaters',
                    img:'https://http2.mlstatic.com/D_NQ_NP_827428-MLA50801544068_072022-O.webp',
                    stock: 7,
                    description:'Poleron Mujer'
                 },
-                {id: '3',
+                {id: '2',
                    name: 'Camisa Oversized',
                    price: 4500,
-                   category: 'Camisa',
+                   category: 'Camisas',
                    img:'https://http2.mlstatic.com/D_NQ_NP_917517-MLA46820861637_072021-O.webp',
                    stock: 3,
                    description:'Camisa Oversized'
@@ -36,10 +36,19 @@ const products = [{id: '1',
                 })
             }
 
-            export const getItem=()=>{
+            export const getProductByCategory=(CategoryId)=> {
+                return new Promise ((resolve) =>{
+                    setTimeout(() =>{
+                        resolve(products.filter(prod => prod.category == CategoryId))
+                    },2000)
+                })
+
+            }
+
+            export const getItem=(id)=>{
                 return new Promise((resolve)=>{
                     setTimeout(()=>{
-                        resolve(products[0])
+                        resolve(products[id])
                     },2000)
                 })
 

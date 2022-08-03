@@ -1,23 +1,45 @@
 import props from '../../App'
-import { getProducts } from '../../asyncMock'
+import { getProducts , getProductByCategory } from '../../asyncMock'
 import { useEffect,useState } from 'react'
 import Itemlist from '../ItemList/itemList' 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useParams } from 'react-router-dom';
 
 
 const ItemListContainer =({greetings}) => {
     const [loading,setLoading]=useState(true)
     const [products,setProducts]=useState([])
-    useEffect(()=>{
-        getProducts().then(Response=>{
-            setProducts(Response)        
-    }).catch(error => {
-        console.log(error)
-    }).finally(()=>{
-        setLoading(false)
-    })},[])
+    const params =useParams()
+    console.log(params.category)
+        useEffect(()=>{
+            if (params.categoryId){
+            getProductByCategory(params.categoryId).then(Response=>{
+                setProducts(Response)        
+        }).catch(error => {
+            console.log(error)
+        }).finally(()=>{
+            setLoading(false)
+        })}
+        else {
+
+    
+            getProducts().then(Response=>{
+                setProducts(Response)        
+        }).catch(error => {
+            console.log(error)
+        }).finally(()=>{
+            setLoading(false)
+        })
+    }
+    
+    
+    },[params.categoryId])
+   
+
+    
+    
 
 
     if (loading) {

@@ -1,12 +1,15 @@
 import ItemDetail from "../ItemDetail/ItemDetail"; 
 import { useEffect,useState } from "react";
 import { getItem } from "../../asyncMock";
+import { useParams } from "react-router-dom";
 
 const GetItemDetail=()=>{
     const [loading,setLoading]=useState(true)
     const [item,setItem]=useState({})
+    const params =useParams()
+
     useEffect(()=>{
-        getItem().then(Response=>{
+        getItem(params.productId).then(Response=>{
             setItem(Response)
                    
     }).catch(error => {
